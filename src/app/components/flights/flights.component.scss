@@ -1,0 +1,162 @@
+.flight-container {
+    height  : calc(100vh - 220px);
+    overflow: auto;
+    width   : calc(100vw - 30px);
+    margin  : 30px 0px;
+
+    .sub-container {
+        margin: 20px auto;
+        width : 50%;
+
+        .btn-container {
+            .search-btn {
+                width           : 100%;
+                border-radius   : 10px;
+                border          : 1px green solid;
+                background-color: green;
+                color           : #fff;
+                opacity         : .8;
+                height          : 50px;
+            }
+
+            .search-btn:hover,
+            .search-btn:active,
+            .search-btn:focus {
+                opacity: 1;
+            }
+        }
+    }
+
+    .form__input--floating {
+        // height     : 56px;
+        padding-top   : 0;
+
+        .input-controls {
+            -moz-border-radius: 4px;
+            border-radius     : 4px;
+            color             : #202124;
+            font-size         : 16px;
+            height            : 28px;
+            margin            : 1px 1px 0 1px;
+            padding           : 13px 15px;
+            z-index           : 1;
+            width             : 100%;
+            width             : -moz-available;
+            width             : -webkit-fill-available;
+            width             : stretch;
+            border            : 2px solid #80868b;
+        }
+    }
+
+    .input-controls:focus,
+    .input-controls:active {
+        border: 2px solid #0073b1 !important;
+    }
+
+    .floating-lbl {
+        background   : #fff;
+        box-sizing   : border-box;
+        color        : #80868b;
+        font-size    : 1.4rem;
+        line-height  : 1.42857;
+        font-weight  : 400;
+        left         : 8px;
+        max-width    : -moz-calc(60% - (2*8px));
+        max-width    : calc(60% - (2*8px));
+        overflow     : hidden;
+        padding      : 0 8px;
+        text-overflow: ellipsis;
+        transition   : transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        white-space  : nowrap;
+        width        : auto;
+        z-index      : 1;
+        position     : relative;
+        transform    : scale(0.75) translateY(-100px);
+    }
+
+    .input-controls:focus+.floating-lbl,
+    .input-controls:active+.floating-lbl {
+        color: #0073b1 !important;
+    }
+
+    .invalid-control {
+        border: 2px solid #d11124 !important;
+    }
+
+    .error-lbl {
+        color: #d11124 !important;
+    }
+
+    .valid-control {
+        border: 2px solid #000 !important;
+        color : #000 !important;
+    }
+
+    .valid-lbl {
+        color: #000 !important;
+    }
+
+    select {
+        height: 58px !important;
+        color : #80868b !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .flight-container {
+        width: calc(100vw - 15px) !important;
+
+        .sub-container {
+            margin: 20px auto !important;
+            width : 90% !important;
+        }
+    }
+}
+
+.result-box {
+    width        : 80%;
+    border       : 1px solid #0073b1;
+    border-radius: 10px;
+    padding      : 20px;
+    margin       : 10px;
+    box-shadow   : #0073b1 2px 2px 2px 2px;
+
+    .timings-class {
+        .duration-cls {
+            text-align: center;
+        }
+
+        .depTime {
+            float        : left;
+            margin-top   : -10px;
+            padding-right: 10px;
+        }
+
+        .arrTime {
+            float       : right;
+            margin-top  : -10px;
+            padding-left: 10px;
+        }
+
+        .line {
+            height: 0px;
+            margin: 0;
+        }
+    }
+
+    .catagory-btn {
+        display: inline-block;
+
+        .catagory-class {
+            min-width    : 100px;
+            background   : #0073b1;
+            border-radius: 5px;
+            color        : #fff;
+            text-align   : center;
+            margin       : 4px;
+            min-width    : 80px;
+            padding: 5px 0;
+        }
+    }
+
+}

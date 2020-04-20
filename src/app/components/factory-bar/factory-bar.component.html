@@ -1,0 +1,28 @@
+<div class="card-container">
+    <ul>
+        <li>
+            <a class="card" (click)='getFlight()' [class.active-bar]="activeBar ==='flight'">
+                <img class="material-icons" src="../assets/travel.png" viewBox="0 0 24 24">
+                <span>Flight</span> </a>
+        </li>
+        <li>
+            <a class="card" (click)='getHotels()' [class.active-bar]="activeBar ==='hotels'">
+                <img class="material-icons" src="../assets/hotel.png" viewBox="0 0 24 24">
+                <span>Hotel</span>
+            </a>
+        </li>
+        <li>
+            <a class="card" (click)='getCars()' [class.active-bar]="activeBar ==='cars'">
+                <img class="material-icons" src="../assets/car.png" viewBox="0 0 24 24">
+                <span>Car</span>
+            </a>
+        </li>
+
+        <li>
+            <a class="card" (click)='getActivities()' [class.active-bar]="activeBar ==='activities'">
+                <img class="material-icons" src="../assets/empowerment.png" viewBox="0 0 24 24">
+                <span>Actvity</span>
+            </a>
+        </li>
+    </ul>
+</div>

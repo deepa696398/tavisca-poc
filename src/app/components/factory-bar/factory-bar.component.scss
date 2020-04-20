@@ -1,0 +1,84 @@
+.card-container {
+    float : left;
+    margin: 16px 0 0 0;
+
+    ul {
+        margin : 0;
+        float  : left;
+        padding: 0;
+
+        li {
+            margin    : 0;
+            list-style: none;
+            position  : relative;
+            float     : left;
+            max-width : calc(35% - 100px);
+            min-width : calc(35% - 100px);
+            width     : 200px;
+
+            .card {
+                border          : 1px solid #eee;
+                background-color: #fafafa;
+                padding         : 5px;
+                display         : flex;
+                flex-direction  : row;
+                justify-content : center;
+                align-items     : center;
+                transition      : all 0.2s ease-in-out;
+                line-height     : 24px;
+                color           : #6e6e6e;
+                text-decoration : none;
+            }
+
+            .card:not(:last-child) {
+                margin-right: 0;
+            }
+
+            .card:not(.highlight-card) {
+                cursor: pointer;
+            }
+
+            .card:not(.highlight-card):hover, .active-bar{
+                transform : translateY(-3px);
+                box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+                color     : #0b6fd2;
+            }
+
+            .material-icons {
+                height: 24px;
+                width : auto;
+            }
+
+            .material-icons:not(:last-child) {
+                margin-right: 4px;
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content .card-container ul li {
+        max-width: calc(45% - 100px);
+        min-width: calc(40% - 100px);
+        width    : 140px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .card-container {
+        ul {
+            display: flex;
+
+            li {
+                max-width: calc(30% - 100px);
+                min-width: calc(30% - 100px);
+                width: 140px;
+                .material-icons {
+                    height: 16px;
+                    width : 16px;
+                }
+            }
+        }
+    }
+}
