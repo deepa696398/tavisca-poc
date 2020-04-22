@@ -1,80 +1,82 @@
-<div class="flight-container">
-    <div *ngIf="!resultData" class="sub-container">
-        <form [formGroup]="flightSearchForm">
-            <div class="form__input--floating">
-                <input class="input-controls" [class.invalid-control]="submitted && f.departure.invalid"
-                    formControlName="departure" [class.valid-control]="f.departure.valid" type="text"
-                    placeholder="Departure City" airportname>
-                <div class="floating-lbl" [class.error-lbl]="submitted && f.departure.invalid"
-                    [class.valid-lbl]="f.departure.valid">Departure</div>
-            </div>
-            <div class="form__input--floating">
-                <input class="input-controls" [class.invalid-control]=" submitted && f.destination.invalid"
-                    formControlName="destination" [class.valid-control]="f.destination.valid" type="text"
-                    placeholder="Destination City" airportname>
-                <div class="floating-lbl" [class.error-lbl]="submitted && f.destination.invalid"
-                    [class.valid-lbl]="f.destination.valid">Destination</div>
-            </div>
-            <div class="form__input--floating">
-                <input class="input-controls" [class.invalid-control]="submitted && f.departureDate.invalid"
-                    [class.valid-control]="f.departureDate.valid" formControlName="departureDate" type="date"
-                    [min]="minDate">
-                <div class="floating-lbl" [class.error-lbl]="submitted && f.departureDate.invalid"
-                    [class.valid-lbl]="f.departureDate.valid">Departure Date</div>
-            </div>
-            <div class="form__input--floating">
-                <input class="input-controls" [class.invalid-control]=" submitted && f.returnDate.invalid"
-                    [class.valid-control]="f.returnDate.valid" formControlName="returnDate" type="date"
-                    [min]="f.departureDate.value">
-                <div class="floating-lbl" [class.error-lbl]="submitted && f.returnDate.invalid"
-                    [class.valid-lbl]="f.returnDate.valid">Return Date</div>
-            </div>
-            <div class="form__input--floating">
-                <input class="input-controls" [class.invalid-control]=" submitted && f.travellers.invalid"
-                    [class.valid-control]="f.travellers.valid" formControlName="travellers" type="text"
-                    placeholder="Number of Travellers" maxlength="2" numbersOnly>
-                <div class="floating-lbl" [class.error-lbl]="submitted && f.travellers.invalid"
-                    [class.valid-lbl]="f.travellers.valid">Travellers</div>
-            </div>
-            <div class="form__input--floating">
-                <select class="input-controls" [class.invalid-control]=" submitted && f.class.invalid"
-                    [class.valid-control]="f.class.valid" formControlName="class">
-                    <option class="disabled-options" value="" [disabled] selected hidden>Choose Class</option>
-                    <option *ngFor="let cls of classList" [ngValue]="cls">{{cls}}</option>
-                </select>
-                <div class="floating-lbl" [class.error-lbl]="submitted && f.class.invalid"
-                    [class.valid-lbl]="f.class.valid">Class</div>
-            </div>
-        </form>
-        <div class="btn-container">
-            <button class="search-btn" type="submit" (click)="onSubmit()">Search</button>
-        </div>
-    </div>
-    <div *ngIf="resultData" class="sub-container">
-        <h3>Search Results</h3>
-        <div>
-            <div *ngFor="let flight of resultData" class="result-box">
-                <div class="flight-name">
-                    {{flight.name}}
+<div>
+    <div class="flight-container">
+        <div *ngIf="!resultData" class="sub-container">
+            <form [formGroup]="flightSearchForm">
+                <div class="form__input--floating">
+                    <input class="input-controls" [class.invalid-control]="submitted && f.departure.invalid"
+                        formControlName="departure" [class.valid-control]="f.departure.valid" type="text"
+                        placeholder="Departure City" airportname>
+                    <div class="floating-lbl" [class.error-lbl]="submitted && f.departure.invalid"
+                        [class.valid-lbl]="f.departure.valid">Departure</div>
                 </div>
-                <div class="timings-class">
-                    <div class="duration-cls"><span class="duration">{{flight.duration}}</span></div>
-                    <div>
-                        <span class="depTime">{{flight.depTime}}
-                        </span>
-                        <span class="arrTime">{{flight.arrTime}}</span>
+                <div class="form__input--floating">
+                    <input class="input-controls" [class.invalid-control]=" submitted && f.destination.invalid"
+                        formControlName="destination" [class.valid-control]="f.destination.valid" type="text"
+                        placeholder="Destination City" airportname>
+                    <div class="floating-lbl" [class.error-lbl]="submitted && f.destination.invalid"
+                        [class.valid-lbl]="f.destination.valid">Destination</div>
+                </div>
+                <div class="form__input--floating">
+                    <input class="input-controls" [class.invalid-control]="submitted && f.departureDate.invalid"
+                        [class.valid-control]="f.departureDate.valid" formControlName="departureDate" type="date"
+                        [min]="minDate">
+                    <div class="floating-lbl" [class.error-lbl]="submitted && f.departureDate.invalid"
+                        [class.valid-lbl]="f.departureDate.valid">Departure Date</div>
+                </div>
+                <div class="form__input--floating">
+                    <input class="input-controls" [class.invalid-control]=" submitted && f.returnDate.invalid"
+                        [class.valid-control]="f.returnDate.valid" formControlName="returnDate" type="date"
+                        [min]="f.departureDate.value">
+                    <div class="floating-lbl" [class.error-lbl]="submitted && f.returnDate.invalid"
+                        [class.valid-lbl]="f.returnDate.valid">Return Date</div>
+                </div>
+                <div class="form__input--floating">
+                    <input class="input-controls" [class.invalid-control]=" submitted && f.travellers.invalid"
+                        [class.valid-control]="f.travellers.valid" formControlName="travellers" type="text"
+                        placeholder="Number of Travellers" maxlength="2" numbersOnly>
+                    <div class="floating-lbl" [class.error-lbl]="submitted && f.travellers.invalid"
+                        [class.valid-lbl]="f.travellers.valid">Travellers</div>
+                </div>
+                <div class="form__input--floating">
+                    <select class="input-controls" [class.invalid-control]=" submitted && f.class.invalid"
+                        [class.valid-control]="f.class.valid" formControlName="class">
+                        <option class="disabled-options" value="" [disabled] selected hidden>Choose Class</option>
+                        <option *ngFor="let cls of classList" [ngValue]="cls">{{cls}}</option>
+                    </select>
+                    <div class="floating-lbl" [class.error-lbl]="submitted && f.class.invalid"
+                        [class.valid-lbl]="f.class.valid">Class</div>
+                </div>
+            </form>
+            <div class="btn-container">
+                <button class="search-btn" type="submit" (click)="onSubmit()">Search</button>
+            </div>
+        </div>
+        <div *ngIf="resultData" class="sub-container">
+            <h3>Search Results</h3>
+            <div>
+                <div *ngFor="let flight of resultData" class="result-box">
+                    <div class="flight-name">
+                        {{flight.name}}
                     </div>
-                    <span>
-                        <hr class="line"></span>
-                </div>
-                <div class="catagory-btn">
-                    <button class="catagory-class" *ngFor="let cls of flight.catogry">
-                        <span>{{cls.price}}</span><br>
-                        <span>{{cls.class}}</span>
-                    </button>
+                    <div class="timings-class">
+                        <div class="duration-cls"><span class="duration">{{flight.duration}}</span></div>
+                        <div>
+                            <span class="depTime">{{flight.depTime}}
+                            </span>
+                            <span class="arrTime">{{flight.arrTime}}</span>
+                        </div>
+                        <span>
+                            <hr class="line"></span>
+                    </div>
+                    <div class="catagory-btn">
+                        <button class="catagory-class" *ngFor="let cls of flight.catogry">
+                            <span>{{cls.price}}</span><br>
+                            <span>{{cls.class}}</span>
+                        </button>
+                    </div>
                 </div>
             </div>
+    
         </div>
-
     </div>
 </div>
